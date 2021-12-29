@@ -1,0 +1,98 @@
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8"> 
+    <title>转盘抽奖页面</title> 
+    <!-- <link href="favicon.ico" rel="icon"> -->
+    <!-- <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
+    <!-- <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA/4QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEREQABEQAAEQABEAERAAAQAAAQAREQABAAABABABAAEQAREBEAAAABEREREAAAAAABAREAAAAAAAEREQAAAAAAAREQAAAAAAABARAAAAAAAREBEQAAAAAAAAEQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADg4wAAzmMAAN9hAADfbQAAzE8AAOAfAAD6PwAA+D8AAPh/AAD6fwAA4j8AAP5/AAD//wAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" /> -->
+    <style type="text/css">
+*{margin: 0;padding: 0}
+#setNode{width: 302px;height: 302px;position: absolute;left: 0;
+	top: 0;right: 0;bottom: 0;margin: auto;}
+#circle{width: 20px;height: 20px;position: absolute;left: 0;right: 0;top: 0;
+	bottom: 0;margin: auto;background: #fa433f;border-radius: 50%;}
+#pan{transition:4s;position: absolute;left: 0;top: 0;right: 0;bottom: 0;margin: auto;}
+#clipNode{
+	width: 10px;height: 50px;background: #fa433f;position: absolute;
+	left: 50%;margin-left:-5px;bottom: 15px; 
+	-webkit-clip-path:polygon(0 100%,50% 0,100% 100%);
+}
+.tip{
+    width:200px;
+    text-align:center;
+    position:absolute;
+    left:50%;
+    margin-left:-100px;
+    top:200px;
+}
+.back{
+    display:inline-block;
+    position:absolute;
+    bottom:200px;
+    left:50%;
+    margin-left:-50px;
+    width:100px;
+    text-align:center;
+}
+/*body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    min-height:100vh;
+}*/
+    #video{
+        object-fit:cover;
+        width:99.5vw;
+        height:99.5vh;
+    }
+    </style>
+</head>
+<body>
+    <video src="../nature-blue-wave-sea-sand-ocean-nature-121623-full.mp4" autoplay muted loop id="video"></video>
+    <!-- <audio src="../music.m4a" autoplay="autoplay" loop -controls></audio> -->
+    <video style="display:none;" autoplay loop name="media">
+        <source src="../music.m4a" type="audio/mp4">
+    </video>
+	<!-- <button id="btn">请点击重置再开始抽奖</button> -->
+    <div class="tip">请点击转盘中心开始抽奖</div>
+	<div id='setNode'>
+		<img src="1.png" id='pan'>
+		<div id='circle'>
+			<div id='clipNode'></div>
+		</div> 
+	</div>
+    <a  href="../index.html" class="back">回到主页</a>
+</body>
+<script type="text/javascript">
+	//btn.onclick=x=>{location.href=location.href;}
+
+	var click=true; //初始时先打开开关
+	circle.onclick=x=>{
+		if(click==true){  //防止连续点击
+			click=false;  //暂时关闭开关，在本次抽奖流程结束之前点击按钮无效
+			//pan.style.transform='rotate(2000deg)';
+			let xhr = new XMLHttpRequest();  //new一部“电话”出来
+			xhr.open('get','http://120.77.17.13:2838/getRotate',true); //向接口发送get请求
+			xhr.send();
+			xhr.onload = function(){
+				console.log(xhr.responseText)
+				let json = eval('('+xhr.responseText+')');  //将后台响应的数据转为json对象
+				pan.style.transform=`rotate(${json.num}deg)`;   //es6的模板语法。 让转盘img图像转动起来
+			    var msg=json.msg;
+				setTimeout(function() {
+					alert(msg);  //利用弹窗弹出中奖信息
+					location.reload();  //5s后刷新页面，以重置转盘 (这里用location.href=location.href也行)
+					click=true; //整个抽奖流程结束之后才将开关打开，以让下一次点击有效！！
+				},5000)  
+			}
+	    }
+	    else return;
+	    return false;
+	     // 清除默认事件????防止在点击抽奖按钮时选中页面上的img元素
+	}
+	circle,clipNode,setNode,pan.onmousedown=function(){ return false; }  //没有用
+</script>
+</html>
