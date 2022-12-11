@@ -94,8 +94,14 @@ h5 {
 	btn.onclick=function(){
 		var source=document.getElementById('source');
 		console.log(source);
-		if(i%2!=0) {source.src="./Chocolate Pandemic.mp3"; source.replay();}
-		else {source.src="././So_Enjoy_It.mp3"; source.replay();}
+		if(i%2!=0) {
+			source.src="./Chocolate Pandemic.mp3"; 
+// 			source.play();
+		}
+		else {
+			source.src="././So_Enjoy_It.mp3"; 
+// 			source.play();
+		}
 		i++;
 	}
     </script>
