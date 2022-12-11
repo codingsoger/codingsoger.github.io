@@ -90,7 +90,8 @@ h5 {
 		document.getElementsByTagName('video')[0].play();
 	}
 	var i=0;
-	switch.onclick=function(){
+	var btn=document.getElementById('switch');
+	btn.onclick=function(){
 		if(i%2!=0) source.src="./Chocolate Pandemic.mp3";
 		else source.src="././So_Enjoy_It.mp3";
 		i++;
