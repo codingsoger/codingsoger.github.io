@@ -97,16 +97,17 @@ h5 {
 	btn.onclick=function(){
 		i++;
 		if(i%2==1) {
+			audio.pause();
 			source.src="./Chocolate Pandemic.mp3"; 
-			setTimeout(function(){
-				audio.play();
-			},0);
+			audio.load();
+			audio.play();
+			
 		}
 		else {
+			audio.pause();
 			source.src="./So_Enjoy_It.mp3"; 
-			setTimeout(function(){
-				audio.play();
-			},0);
+			audio.load();
+			audio.play();
 		}
 		console.log('当前播放音乐:'+source.src);
 	}
