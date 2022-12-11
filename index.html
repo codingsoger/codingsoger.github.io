@@ -2,21 +2,20 @@
 <html> 
 <head> 
     <meta charset="utf-8"> 
-    <title>主页</title> 
+    <title>淞仔的Github Page</title> 
     <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
     <!-- <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoMnr/6DJ6/8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAS4fr/0uH6/9Lh+v/S4fr/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACgyev/S4fr/0uH6/9OP0v/YFNd/0uH6/9Lh+v/oMnr/wAAAAAAAAAAAAAAAAAAAAAAAAAAoMnrd6DJ6/+gyev/oMnr/0uH6/9Lh+v/Tj9L/2BTXf9Lh+v/S4fr/6DJ6/+gyev/oMnr/6DJ63cAAAAAoMnr/6DJ6/+gyev/oMnr/6DJ6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/+gyev/oMnr/6DJ6/+gyev/oMnr/zdk0v83ZNL/N2TS/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/8AAAAAN2TS/zdk0v9Lh+v/Tj9L/2BTXf9Lh+v/S4fr/0uH6/9Lh+v/Tj9L/11PWv9Lh+v/S4fr/0uH6/8AAAAAAAAAADdk0v83ZNL/N2TS/04/S///////S4fr/0uH6/9Lh+v/S4fr//////9gU13/S4fr/0uH6/9Lh+v/AAAAAAAAAAAAAAAAN2TS/zdk0v9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/AAAAAAAAAAAAAAAAAAAAADdk0v83ZNL/S4fr/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/wAAAAAAAAAAAAAAAAAAAAA3ZNL5N2TS/zdk0v9Lh+v/S4fr/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/zdk0v8AAAAAAAAAAAAAAAAAAAAANFG//zJGtP83ZNL/OmnW/0uH6/9Lh+v/S4fr/0uH6/9Lh+v/S4fr/zJGtP80Ub//AAAAAAAAAAAAAAAAAAAAADJGtP8yRrT/Mka0/zdk0v83ZNL/S4fr/0uH6/9Lh+v/N2TS/zJGtP8yRrT/Mka0/wAAAAAAAAAAAAAAAAAAAAAyRrT/Mka0/zdk0v83ZNL/AAAAAAAAAAAAAAAAAAAAADdk0v83ZNL/Mka0/zJGtP8AAAAAAAAAAAAAAAAAAAAAMka0/zdk0v83ZNLMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN2TS/zdk0v8yRrT/AAAAAAAAAAAAAAAAAAAAADdk0v8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN2TS/wAAAAAAAAAA/n8AAPw/AADwDwAAwAMAAAAAAAAAAAAAgAEAAIABAADAAwAAwAMAAMADAADAAwAAwAMAAMPDAADH4wAA3/sAAA==" rel="icon" type="image/x-icon" /> -->
     <style type="text/css">
-    	*{margin: 0;padding: 0;}
+    	*{margin: 0;padding: 0;list-style:none;text-decoration:none;}
     	div{width: 300px;height: 300px;background: red;
     		-webkit-clip-path:polygon(0 300px,150px 0,150px 0,300px 300px);
     		transition:.7s;
-            line-height:500px;
-            text-align:center;
+                line-height:500px;
+                text-align:center;
     	}
     	div:hover{
     		-webkit-clip-path:polygon(0px 300px,0 0,300px 0,300px 300px);
             line-height:300px;
-
     	}
         body{ 
             background:url(flower-white-petal-flowers-shallow-focus-photography-blossom-blossom-image.jpg) center/cover;
@@ -28,23 +27,74 @@
             font-size:3rem;
             color:aqua;
         }
+/* body{text-align:center;} */
+h1 {
+	font-size: 20vw;
+	margin: 30px;
+	color: #ffc107;
+}
+
+.z-text { 
+/* Tip: Apply CSS transforms here 在此设定3D文本的样式(X、Y轴旋转)*/
+/* rotateX() == up/down */
+/* rotateY() == left/right */
+	animation: wobble 12s ease-in-out infinite;
+	transform: rotateX(30deg) rotateY(-30deg);
+}
+
+.z-layer:nth-child(1) {
+	color: blue;
+}
+/*
+.z-layer:nth-child(2) {
+	color: #4caf50;
+}
+
+.z-layer:nth-child(3) {
+	color: #3f51b5;
+}
+*/
+
+@keyframes wobble {
+	0%,
+	100% {
+		transform: rotate3d(-1, 1, 0, 20deg);
+	}
+	25% {
+		transform: rotate3d(1, 1, 0, 20deg);
+	}
+	50% {
+		transform: rotate3d(1, -1, 0, 20deg);
+	}
+	75% {
+		transform: rotate3d(-1, -1, 0, 20deg);
+	}
+}
     </style>
+    <script src="https://bennettfeely.com/ztext/js/ztext.min.js"></script>
 </head>
 <body>
-    本页面的服务器为Github Page
-	<div>Hover me</div>
-    <ol>
+    欢迎进入我的Github Page
+    <div>Hover me</div>
+    <ul>
         <li><a href="html/zp.html">转盘摇奖系统</a></li>
-
-    </ol> 
+    </ul>
+    <h1 id="switch">
+	<span data-z data-z-layers="15" data-z-depth="0.2em">Switch🔥Music</span>
+    </h1>
     <video style="display:none;" autoplay loop name="media">
-        <source src="./So_Enjoy_It.mp3" type="audio/mp4">
+        <source id=source src="./So_Enjoy_It.mp3" type="audio/mp4">
     </video>
     <script type="text/javascript">
 	window.onload=function(){
 		document.getElementsByTagName('video')[0].play();
 	}
-
-</script>
+	const i=0;
+	switch.onclick=function(){
+		if(i%2!=0) source.src="./Chocolate Pandemic.mp3";
+		else source.src="././So_Enjoy_It.mp3";
+		i++;
+	}
+    </script>
 </body>
 </html>
