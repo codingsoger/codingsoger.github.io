@@ -68,7 +68,9 @@
 </body>
 <script type="text/javascript">
 	//btn.onclick=x=>{location.href=location.href;}
-
+	window.onload=function(){
+		document.getElementsByTagName('video')[1].play();
+	}
 	var click=true; //初始时先打开开关
 	circle.onclick=x=>{
 		if(click==true){  //防止连续点击
