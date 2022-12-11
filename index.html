@@ -78,7 +78,7 @@ h5 {
     <ul>
         <li><a href="html/zp.html">转盘摇奖系统</a></li>
     </ul>
-    <h5 id="switch">
+    <h5 id=switch>
 	<span data-z data-z-layers="15" data-z-depth="0.2em">Switch🔥Music</span>
     </h5>
     <video style="display:none;" autoplay loop name="media">
@@ -89,7 +89,7 @@ h5 {
 	window.onload=function(){
 		document.getElementsByTagName('video')[0].play();
 	}
-	const i=0;
+	var i=0;
 	switch.onclick=function(){
 		if(i%2!=0) source.src="./Chocolate Pandemic.mp3";
 		else source.src="././So_Enjoy_It.mp3";
