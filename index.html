@@ -93,15 +93,16 @@ h5 {
 	var btn=document.getElementById('switch');
 	var source=document.getElementById('source');
 	var audio=document.getElementsByTagName('video')[0];
+	console.log(audio);
 	btn.onclick=function(){
 		i++;
 		if(i%2==1) {
 			source.src="./Chocolate Pandemic.mp3"; 
-			audio.play();
+			audio.replay();
 		}
 		else {
-			source.src="././So_Enjoy_It.mp3"; 
-			audio.play();
+			source.src="./So_Enjoy_It.mp3"; 
+			audio.replay();
 		}
 		console.log('当前播放音乐:'+source.src);
 	}
