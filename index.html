@@ -89,12 +89,12 @@ h5 {
 	window.onload=function(){
 		document.getElementsByTagName('video')[0].play();
 	}
-	var i=0;
+	var i=1;
 	var btn=document.getElementById('switch');
 	btn.onclick=function(){
 		var source=document.getElementById('source');
 		console.log(source.src);
-		if(i%2!=0) {
+		if(i%2==1) {
 			source.src="./Chocolate Pandemic.mp3"; 
 			source.play();
 		}
