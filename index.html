@@ -98,11 +98,15 @@ h5 {
 		i++;
 		if(i%2==1) {
 			source.src="./Chocolate Pandemic.mp3"; 
-			audio.replay();
+			setTimeout(function(){
+				audio.replay();
+			},0);
 		}
 		else {
 			source.src="./So_Enjoy_It.mp3"; 
-			audio.replay();
+			setTimeout(function(){
+				audio.replay();
+			},0);
 		}
 		console.log('当前播放音乐:'+source.src);
 	}
