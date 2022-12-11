@@ -89,12 +89,12 @@ h5 {
 	window.onload=function(){
 		document.getElementsByTagName('video')[0].play();
 	}
-	var i=1;
+	var i=0;
 	var btn=document.getElementById('switch');
 	var source=document.getElementById('source');
 	var audio=document.getElementsByTagName('video')[0];
 	btn.onclick=function(){
-		console.log(source.src);
+		i++;
 		if(i%2==1) {
 			source.src="./Chocolate Pandemic.mp3"; 
 			audio.play();
@@ -103,7 +103,7 @@ h5 {
 			source.src="././So_Enjoy_It.mp3"; 
 			audio.play();
 		}
-		i++;
+		console.log('当前播放音乐:'+source.src);
 	}
     </script>
 </body>
