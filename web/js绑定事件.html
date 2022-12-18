@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script
+  src="https://code.jquery.com/jquery-3.6.2.min.js"
+  integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+	<button onclick="do1()">绑定事件方法1</button>
+	<button id="btn2">绑定事件方法2</button>
+	<button id="btn3">绑定事件方法3</button>
+	<br>
+	<button id="btn4">使用jquery绑定事件方法1</button>
+	<button id="btn5">使用jquery绑定事件方法2</button>
+	<button id="btn6">使用jquery绑定事件方法3</button>
+	<script type="text/javascript">
+		function do1(){
+			alert('在Dom中直接绑定事件(和在Vue中用法类似)');
+		}
+
+		// btn2.on({'click':function(){ 
+		//此种写法错误，这种写法是使用Jquery时才能用的 $('#btn2').click(function(){ })
+		// 	alert("在js中绑定事件写法1");
+		// },'mousedown':function(){} })
+
+		btn2.addEventListener('click',function(){ 
+			alert("在js中绑定事件监听函数");
+		})
+
+		btn3.onclick=function(){
+			alert('在js中绑定事件');
+		}
+
+		$("#btn4").click(function(){alert("使用jquery绑定事件方法1")});
+		$("#btn5").on({'click':function(){alert("使用jquery绑定事件方法2(单击事件)")},
+					   'mouseover':function(){console.log("使用jquery绑定事件方法2(鼠标移入事件)")}
+	 	});
+		$("#btn6").on('click',function(){alert("使用jquery绑定事件方法3")});
+	</script>
+</body>
+</html>
