@@ -55,11 +55,7 @@
                 video.pause();
             }
         }
-        window.onload=function(){
-            video.click();
-        }
-
-
+ 
         function download(url) {
             const xhr = new XMLHttpRequest();
             xhr.open('get', url);
@@ -82,6 +78,7 @@
                 video.src = fileUrl;
                 video.load();
                 // video.play();
+                video.click();
 
                 // video.onload = function() {
                 var i = 5;
