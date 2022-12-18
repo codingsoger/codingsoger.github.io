@@ -74,13 +74,27 @@
                 document.body.appendChild(elementA);
                 document.getElementsByTagName("a")[0].onclick = function() {
                     this.top = "13px";
-                    alert(1);
                 }
 
                 video.src = fileUrl;
                 video.load();
-                video.play();
+                // video.play();
 
+                // video.onload = function() {
+                var i = 5;
+                var timer = setInterval(function() {
+                    console.clear();
+                    console.log("Blob地址 " + video.src + " 还有" + i + "s失效", );
+                    i--;
+                }, 1000)
+                setTimeout(function() {
+                    console.clear();
+                    window.URL.revokeObjectURL(video.src);
+                    console.log("Blob地址 " + video.src + " 已失效", );
+                    clearInterval(timer);
+                }, 6000)
+
+                // }
             }
         }
         let mediaUrl =
