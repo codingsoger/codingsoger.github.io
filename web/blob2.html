@@ -56,10 +56,12 @@
                 video.pause();
             }
         }
-        document.body.addEventListener("click", function() {
+        function a() {
             video.muted = false;
+            document.body.removeEventListener("click",a);
             // video.play();
-        })
+        }
+        document.body.addEventListener("click", a)
 
         function download(url) {
             const xhr = new XMLHttpRequest();
@@ -93,7 +95,6 @@
                     console.log("视频已经加载好，可以开始播放了");
 //                     setTimeout(function() {
                         document.body.click();
-                        document.body.removeEventListener("click");
 //                     }, 10);
                     var i = 5;
                     var timer = setInterval(function() {
