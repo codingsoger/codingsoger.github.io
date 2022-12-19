@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <button onclick="uploadFile()">下载文件</button>
+    <a href="http://localhost:3000/file">1</a>
+    <a href="http://localhost:3000/file1">2</a>
+
+    <script type="text/javascript">
+        function uploadFile() {
+            axios({
+                url: "http://localhost:3000/file1",
+                methods: "get",
+                responseType: "blob"
+            }).then(result => {
+                console.log(result);
+                const blob = new Blob([result.data], {
+                    type: "image/jpeg"
+                });
+                const url = window.URL.createObjectURL(blob);
+                console.log(url);
+                let a = document.createElement("a");
+                a.download = '1.png';
+                a.href = url;
+                a.click();
+            }).catch(err => {
+                console.log(err);
+            })
+        }
+    </script>
+
+
+
+</body>
+
+</html>

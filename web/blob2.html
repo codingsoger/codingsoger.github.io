@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        a {
+            transition: 1s linear;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            text-decoration: none;
+            display: inline-block;
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 10px;
+            background: blueviolet;
+            color: azure;
+            box-shadow: 0px 2px 3px 1px black;
+        }
+        
+        video {
+            object-fit: cover;
+            width: 100vw;
+            height: 100vh;
+        }
+    </style>
+</head>
+
+<body>
+    <video src="" id="video"></video>
+    <script type="text/javascript">
+        var i = 0;
+        video.onclick = function() {
+            i++;
+            if (i % 2 == 1) {
+                document.getElementById('video').play();
+            } else {
+                video.pause();
+            }
+        }
+        document.body.addEventListener("click", function() {
+            video.muted = false;
+            // video.play();
+        })
+
+        function download(url) {
+            const xhr = new XMLHttpRequest();
+            xhr.open('get', url);
+            xhr.responseType = "blob";
+            xhr.send();
+            xhr.onload = function() {
+                const fileBlob = xhr.response;
+                console.log(fileBlob);
+                const fileUrl = URL.createObjectURL(fileBlob);
+                console.log(fileUrl);
+                const elementA = document.createElement("a");
+                elementA.setAttribute("href", fileUrl);
+                elementA.innerHTML = "下载该视频";
+                elementA.setAttribute("download", "");
+                document.body.appendChild(elementA);
+                document.getElementsByTagName("a")[0].addEventListener("click", function() {
+                    this.top = "13px";
+                })
+
+                video.src = fileUrl;
+                video.setAttribute("autoplay", "");
+                video.setAttribute("muted", "");
+                video.load();
+                // video.play();
+                // video.click();
+
+
+                // video.onload = function() {
+                video.addEventListener("canplay", function() {
+                    console.log("视频已经加载好，可以开始播放了");
+                    setTimeout(function() {
+                        document.body.click();
+                    }, 10);
+                    var i = 5;
+                    var timer = setInterval(function() {
+                        console.clear();
+                        console.log("Blob地址 " + video.src + " 还有" + i + "s失效", );
+                        i--;
+                    }, 1000)
+                    setTimeout(function() {
+                            console.clear();
+                            window.URL.revokeObjectURL(video.src);
+                            console.log("Blob地址 " + video.src + " 已失效", );
+                            clearInterval(timer);
+                        }, 6000)
+                        // }
+                })
+            }
+        }
+        let mediaUrl =
+            "./video/1.mp4";
+        //https://joy1.videvo.net/videvo_files/video/free/2021-04/large_watermarked/210329_06B_Bali_1080p_013_preview.mp4   在线视频有跨域问题
+        //https://images.pexels.com/photos/14491698/pexels-photo-14491698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2  图片无跨域问题
+        //./video/1.mp4  本地视频无跨域问题
+        download(mediaUrl);
+    </script>
+</body>
+
+</html>
