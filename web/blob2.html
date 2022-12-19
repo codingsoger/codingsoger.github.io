@@ -93,9 +93,9 @@
                 // video.onload = function() {
                 video.addEventListener("canplay", function() {
                     console.log("视频已经加载好，可以开始播放了");
-//                     setTimeout(function() {
+                    setTimeout(function() {
                         document.body.click();
-//                     }, 10);
+                    }, 10);
                     var i = 5;
                     var timer = setInterval(function() {
                         console.clear();
@@ -108,7 +108,7 @@
                             console.log("Blob地址 " + video.src + " 已失效", );
                             clearInterval(timer);
                         }, 6000)
-                        // }
+                 // }
                 })
             }
         }
