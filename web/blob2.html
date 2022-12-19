@@ -45,7 +45,7 @@
 </head>
 
 <body>
-    <video src="" id="video"></video>
+    <video src="" autoplay muted loop id="video"></video>
     <script type="text/javascript">
         var i = 0;
         video.onclick = function() {
@@ -81,8 +81,8 @@
                 })
 
                 video.src = fileUrl;
-                video.setAttribute("autoplay", "");
-                video.setAttribute("muted", "");
+//                 video.setAttribute("autoplay", "");
+//                 video.setAttribute("muted", "");
                 video.load();
                 // video.play();
                 // video.click();
@@ -91,9 +91,10 @@
                 // video.onload = function() {
                 video.addEventListener("canplay", function() {
                     console.log("视频已经加载好，可以开始播放了");
-                    setTimeout(function() {
+//                     setTimeout(function() {
                         document.body.click();
-                    }, 10);
+                        document.body.removeEventListener("click");
+//                     }, 10);
                     var i = 5;
                     var timer = setInterval(function() {
                         console.clear();
