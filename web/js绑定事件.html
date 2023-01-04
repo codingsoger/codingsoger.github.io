@@ -39,8 +39,8 @@
 		$("#btn4").click(function(){alert("使用jquery绑定事件方法1")});
 		$("#btn5").on({'click':function(){alert("使用jquery绑定事件方法2(单击事件)")},
 					   'mouseover':function(){console.log("使用jquery绑定事件方法2(鼠标移入事件)")}
-	 	});
-		$("#btn6").on('click',function(){alert("使用jquery绑定事件方法3")});
+	 	});  //jquery之on的多事件绑定方法
+		$("#btn6").on('click',function(){alert("使用jquery绑定事件方法3")});  //jquery之on的单事件绑定方法
 	</script>
 </body>
 </html>
